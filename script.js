@@ -1,16 +1,18 @@
 // --- Initialization ---
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 2. Register GSAP Plugins
+    // 1. Register GSAP Plugins
     gsap.registerPlugin(ScrollTrigger);
 
     // --- GSAP Animations ---
 
     // Hero Entrance
-    const tlHero = gsap.timeline();
-    tlHero.to(".hero-title", { opacity: 1, y: 0, duration: 1, ease: "power3.out" })
-          .to(".hero-subtitle", { opacity: 1, y: 0, duration: 1, delay: -0.5 })
-          .from(".btn-primary", { opacity: 0, y: 20, duration: 0.5 }, "-=0.5");
+   // Hero Entrance
+   const tlHero = gsap.timeline();
+   tlHero.to(".hero-title", { opacity: 1, y: 0, duration: 1, ease: "power3.out" })
+         .to(".hero-subtitle", { opacity: 1, y: 0, duration: 1, delay: -0.5 })
+         // Correção aqui: Usamos .to() e um seletor mais específico
+         .to(".hero-content .btn", { opacity: 1, y: 0, duration: 0.5 }, "-=0.5");
 
     // Team Blocks Sliding
     gsap.utils.toArray('.team-block').forEach((block, i) => {
@@ -121,11 +123,37 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- Mobile Menu ---
+    // --- Menu Interactions (Mobile & Dropdown) ---
     const mobileMenu = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
+    
+    // 1. Mobile Hamburger Toggle
+    if(mobileMenu) {
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active'); // Anima o ícone (se houver CSS)
+            navMenu.classList.toggle('active');    // Mostra/Esconde o menu
+        });
+    }
 
-    mobileMenu.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
+    // 2. Dropdown Logic (Serviços)
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    const dropdownItem = document.querySelector('.dropdown-item');
+
+    if (dropdownToggle) {
+        dropdownToggle.addEventListener('click', (e) => {
+            // Previne que a página pule para o ID #services imediatamente
+            // para permitir que o usuário veja o submenu primeiro
+            e.preventDefault();
+            dropdownItem.classList.toggle('active');
+        });
+    }
+
+    // 3. Fechar Dropdown ao clicar fora
+    document.addEventListener('click', (e) => {
+        // Se o clique NÃO foi dentro do item dropdown, remove a classe active
+        if (dropdownItem && !dropdownItem.contains(e.target)) {
+            dropdownItem.classList.remove('active');
+        }
     });
+
 });
