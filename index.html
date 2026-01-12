@@ -12,14 +12,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    
+    <link rel="shortcut icon" href="img/logo-cz-marketing.PNG" type="image/png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="dark-theme">
 
     <nav class="navbar">
         <div class="container nav-container">
-            <a href="index.html" class="logo">CZ <span class="highlight">Mídia</span></a>
+            <a href="index.html" class="logo">
+                <img src="img/logo-cz-marketing.PNG" alt="Logo CZ Mídia" class="logo-img">
+                
+                CZ <span class="highlight">Mídia</span>
+            </a>
             
             <div class="menu-toggle" id="mobile-menu">
                 <span class="bar"></span>
@@ -242,7 +246,130 @@
             </div>
         </div>
     </section>
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="text-gradient">Vamos Escalar seu Negócio?</h2>
+                <p>Preencha o formulário abaixo e entraremos em contato em até 24h.</p>
+            </div>
 
+            <div class="contact-wrapper">
+                <form action="https://formsubmit.co/SEU_EMAIL_AQUI" method="POST" class="contact-form">
+                    
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_subject" value="Novo Lead do Site - CZ Mídia">
+                    <input type="hidden" name="_next" value="http://seusite.com/obrigado.html"> 
+
+                    <div class="form-group">
+                        <label for="name">Qual é o seu nome?</label>
+                        <div class="input-icon-wrapper">
+                            <i class="fa-regular fa-user"></i>
+                            <input type="text" id="name" name="name" placeholder="Seu nome completo" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Qual o seu Whatsapp?</label>
+                        <div class="phone-input-group">
+                            <div class="select-country">
+                                <select name="country_code" id="country_code">
+                                    <option value="+55">🇧🇷 +55</option>
+                                    <option value="+1">🇺🇸 +1</option>
+                                    <option value="+351">🇵🇹 +351</option>
+                                    <option value="+52">🇲🇽 +52</option>
+                                    <option value="+44">🇬🇧 +44</option>
+                                    <option value="+34">🇪🇸 +34</option>
+                                </select>
+                            </div>
+                            <input type="tel" id="phone" name="phone" placeholder="(11) 99999-9999" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Qual o seu melhor e-mail?</label>
+                        <div class="input-icon-wrapper">
+                            <i class="fa-regular fa-envelope"></i>
+                            <input type="email" id="email" name="email" placeholder="exemplo@empresa.com" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="revenue">Qual sua média de faturamento mensal?</label>
+                        <div class="select-wrapper">
+                            <select id="revenue" name="revenue" required>
+                                <option value="" disabled selected>Selecione uma opção</option>
+                                <option value="ainda_nao_tenho">Ainda não tenho renda</option>
+                                <option value="0_5k">R$ 0 a R$ 5.000</option>
+                                <option value="5k_15k">R$ 5.000 a R$ 15.000</option>
+                                <option value="15k_50k">R$ 15.000 a R$ 50.000</option>
+                                <option value="50k_plus">Acima de R$ 50.000</option>
+                                <option value="nao_informar">Prefiro não informar</option>
+                            </select>
+                            <i class="fa-solid fa-chevron-down select-arrow"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label class="label-spaced">Serviço desejado:</label>
+                        <div class="services-selection-grid">
+                            <label class="service-option">
+                                <input type="checkbox" name="services[]" value="Trafego Pago">
+                                <span class="checkmark">
+                                    <i class="fa-solid fa-chart-line"></i>
+                                    Tráfego Pago
+                                </span>
+                            </label>
+
+                            <label class="service-option">
+                                <input type="checkbox" name="services[]" value="Criacao de Site">
+                                <span class="checkmark">
+                                    <i class="fa-solid fa-code"></i>
+                                    Criação de Site
+                                </span>
+                            </label>
+
+                            <label class="service-option">
+                                <input type="checkbox" name="services[]" value="Design">
+                                <span class="checkmark">
+                                    <i class="fa-solid fa-pen-nib"></i>
+                                    Design
+                                </span>
+                            </label>
+
+                            <label class="service-option">
+                                <input type="checkbox" name="services[]" value="Edicao de Videos">
+                                <span class="checkmark">
+                                    <i class="fa-solid fa-film"></i>
+                                    Edição de Vídeos
+                                </span>
+                            </label>
+
+                            <label class="service-option full">
+                                <input type="checkbox" name="services[]" value="Mais de um servico">
+                                <span class="checkmark">
+                                    <i class="fa-solid fa-plus"></i>
+                                    Desejo mais de um serviço / Combo
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="message">Descreva brevemente o projeto <span class="highlight-text">*Ajustaremos tudo na reunião</span></label>
+                        <textarea id="message" name="message" rows="5" placeholder="Conte um pouco sobre sua empresa e seus objetivos atuais..." required></textarea>
+                    </div>
+
+                    <div class="form-footer">
+                        <button type="submit" class="btn btn-primary btn-block">
+                            Enviar Solicitação <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
     <div id="project-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
