@@ -9,6 +9,7 @@
     --font-heading: 'Montserrat', sans-serif;
     --font-body: 'Open Sans', sans-serif;
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --navbar-height: 80px;
 }
 
 * {
@@ -96,6 +97,7 @@ img { max-width: 100%; display: block; }
     border-bottom: 1px solid rgba(255,255,255,0.05);
     padding: 20px 0;
     transition: 0.3s;
+    height: var(--navbar-height);
 }
 
 .nav-container {
