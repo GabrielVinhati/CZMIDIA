@@ -10,6 +10,7 @@
     --font-body: 'Open Sans', sans-serif;
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     --navbar-height: 80px;
+    --primary-green: #25d366;
 }
 
 * {
@@ -724,4 +725,522 @@ textarea {
 /* Ajuste fino para garantir que o ícone fique centralizado verticalmente */
 .input-icon-wrapper i {
     left: 20px; /* Empurrei o ícone um pouquinho mais pra direita também pra ficar mais equilibrado */
+}
+/* --- WHATSAPP FLOAT --- */
+#whatsapp-float {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+/* Balão de mensagem */
+.whatsapp-bubble {
+    max-width: 220px;
+    background-color: #fff;
+    color: #333;
+    font-size: 0.85rem;
+    padding: 10px 14px;
+    border-radius: 12px 12px 0 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+/* Pontinha do balão */
+.whatsapp-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #fff;
+}
+
+/* Botão WhatsApp */
+.whatsapp-button {
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-green);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    text-decoration: none;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+    transition: 0.3s;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.1);
+}
+/* =========================================
+   CORREÇÃO PÁGINA OBRIGADO (COLE NO FINAL DO CSS)
+   ========================================= */
+
+/* 1. Ajuste do Hero para centralizar tudo perfeitamente */
+.success-hero {
+    height: 100vh;
+    min-height: 700px;
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    position: relative;
+    text-align: center; /* Garante que o texto fique no meio */
+}
+
+/* 2. Escurecer mais o fundo SÓ nessa página para o texto aparecer */
+.success-hero .overlay {
+    background: rgba(0, 0, 0, 0.85); /* Bem escuro (85%) para destacar o texto */
+    z-index: 0;
+}
+
+/* 3. Ajuste do Container de Conteúdo */
+.success-content {
+    position: relative;
+    z-index: 2; /* Garante que fique acima da imagem */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 800px;
+    padding-top: 60px; /* Compensa a Navbar fixa */
+}
+
+/* 4. Ícone de Check (Azul) */
+.icon-wrapper {
+    margin-bottom: 25px;
+}
+.icon-wrapper i {
+    font-size: 5rem;
+    color: var(--accent);
+    filter: drop-shadow(0 0 20px rgba(0, 182, 255, 0.6)); /* Brilho neon */
+}
+
+/* 5. FORÇAR o texto a aparecer (Correção do bug de sumiço) */
+.success-hero .hero-title {
+    opacity: 1 !important;
+    transform: none !important;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block; /* Garante que ocupe a linha */
+}
+
+.success-hero .hero-subtitle {
+    opacity: 1 !important;
+    transform: none !important;
+    font-size: 1.1rem;
+    color: #d0d0d0; /* Cinza claro */
+    margin-bottom: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Destaque para os textos em negrito */
+.text-white {
+    color: #fff;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+}
+
+/* 6. Box de Urgência (Melhorado) */
+.urgent-call {
+    background: rgba(20, 20, 20, 0.9); /* Fundo quase preto sólido */
+    border: 1px solid var(--accent); /* Borda azul neon */
+    padding: 30px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+.urgent-call p {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Botão do WhatsApp Central */
+.btn-whatsapp-hero {
+    background-color: #25d366; /* Verde Zap Oficial */
+    color: #fff;
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.btn-whatsapp-hero:hover {
+    background-color: #1ebc57;
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
+}
+
+/* Botão Voltar (Link simples abaixo) */
+.back-home {
+    margin-top: 15px;
+    color: #888;
+    font-size: 0.9rem;
+    border: none;
+    background: transparent;
+    text-decoration: underline;
+}
+.back-home:hover {
+    color: #fff;
+    background: transparent;
+}
+
+/* Responsivo para celular */
+@media (max-width: 768px) {
+    .success-hero .hero-title { font-size: 2rem; }
+    .icon-wrapper i { font-size: 4rem; }
+    .urgent-call { width: 90%; padding: 20px; }
+}
+
+/* --- CZAP SPECIAL CARD STYLES --- */
+
+/* Faz o card ocupar a largura total do grid */
+.czap-special-card {
+    grid-column: 1 / -1; /* Ocupa de ponta a ponta */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    background: #0f0f0f; /* Um pouco mais escuro para destacar o neon */
+    border: none; /* Removemos a borda padrão para usar a animada */
+    padding: 50px 30px;
+    margin-top: 30px;
+    overflow: hidden; /* Para conter a borda animada */
+    text-decoration: none; /* Garante que não pareça um link azul feio */
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+/* Animação da Borda (Azul para Roxo) */
+@keyframes borderRotate {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Pseudo-elemento para a borda brilhante */
+.czap-special-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 8px; 
+    padding: 2px; /* Espessura da borda */
+    background: linear-gradient(45deg, #00b6ff, #8a2be2, #00b6ff);
+    background-size: 200% 200%;
+    animation: borderRotate 3s linear infinite;
+    -webkit-mask: 
+       linear-gradient(#fff 0 0) content-box, 
+       linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+/* Efeito de Hover: Leve zoom */
+.czap-special-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 30px rgba(138, 43, 226, 0.2); /* Sombra roxa suave */
+}
+
+/* Badge de Novidade */
+.czap-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(90deg, #00b6ff, #8a2be2);
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px rgba(0, 182, 255, 0.5);
+}
+
+/* Título Brilhante (Azul para Roxo) */
+.czap-title {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    background: linear-gradient(90deg, #00b6ff, #8a2be2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    filter: drop-shadow(0 0 5px rgba(138, 43, 226, 0.3));
+}
+.czap-title i {
+    font-size: 2.5rem;
+    color: #25d366; /* Mantém o verde do ícone do Whats */
+    -webkit-text-fill-color: initial; /* Remove o gradiente do ícone */
+}
+
+.czap-subtitle {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin-bottom: 40px;
+    color: #e0e0e0;
+}
+
+/* Grid interna do conteúdo (3 colunas) */
+.czap-content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.czap-col {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.czap-col h4 {
+    color: var(--accent);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+}
+
+.czap-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.czap-col ul li {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.czap-col ul li::before {
+    content: "•";
+    color: #8a2be2; /* Bullet roxo */
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* Botão de CTA Especial */
+.czap-btn {
+    font-size: 1.1rem;
+    padding: 15px 40px;
+    background: linear-gradient(90deg, var(--accent), #8a2be2);
+    border: none;
+    color: white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+.czap-btn:hover {
+    background: linear-gradient(90deg, var(--accent-hover), #7014b8);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(138, 43, 226, 0.4);
+}
+
+.czap-footer-text {
+    margin-top: 15px;
+    font-size: 0.85rem;
+    color: #888;
+    font-style: italic;
+}
+
+/* Responsividade do card CZAP */
+@media (max-width: 768px) {
+    .czap-title { font-size: 2rem; }
+    .czap-content-grid { text-align: center; }
+    .czap-col h4 { justify-content: center; }
+    .czap-col ul li { justify-content: center; }
+    .czap-col ul li::before { display: none; } /* Remove bullet no mobile centralizado */
+}
+
+/* --- ABOUT US SECTION --- */
+.about-us-section {
+    background: linear-gradient(to bottom, var(--bg-color), #0f0f0f);
+    padding: 100px 0;
+    position: relative;
+}
+
+.about-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-direction: column; /* Mobile First */
+}
+
+/* Ajustes de Tipografia Específicos */
+.sub-heading {
+    color: var(--accent);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.text-left {
+    text-align: left !important;
+    margin-bottom: 30px;
+}
+
+.about-description {
+    color: #ccc;
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.about-description strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Grid de Valores (Ícones + Texto) */
+.values-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.value-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.value-item i {
+    font-size: 1.5rem;
+    color: var(--accent);
+    background: rgba(0, 182, 255, 0.1);
+    padding: 12px;
+    border-radius: 50%;
+    margin-top: -5px;
+}
+
+.value-item h5 {
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.value-item p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* Coluna da Imagem */
+.about-image-col {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+}
+
+.image-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: visible; /* Para o badge sair pra fora se precisar */
+}
+
+.main-about-img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255,255,255,0.1);
+    /* Filtro leve para harmonizar com o dark theme se a foto for clara */
+    filter: brightness(0.9) contrast(1.1); 
+}
+
+/* Badge Flutuante (+3 Anos) */
+.experience-badge {
+    position: absolute;
+    bottom: -30px;
+    right: -20px;
+    background: var(--card-bg);
+    border: 1px solid var(--accent);
+    padding: 20px 30px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    animation: floatBadge 4s ease-in-out infinite;
+}
+
+.experience-badge .years {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+}
+
+.experience-badge .label {
+    font-size: 0.9rem;
+    color: #fff;
+    font-weight: 600;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+@keyframes floatBadge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Responsividade Desktop */
+@media (min-width: 992px) {
+    .about-wrapper {
+        flex-direction: row; /* Coloca lado a lado */
+    }
+    .about-text {
+        flex: 1;
+    }
+    .about-image-col {
+        flex: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .experience-badge {
+        right: 10px; /* Ajuste para não cortar no mobile */
+        bottom: -20px;
+        padding: 15px 20px;
+    }
+    .experience-badge .years {
+        font-size: 2rem;
+    }
 }
