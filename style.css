@@ -1436,3 +1436,9 @@ textarea {
         font-size: 18px; /* Ajustei de 1px para 18px, pois 1px ficaria invisível */
     }
 }
+/* Adicione isso ao seu arquivo CSS */
+#modal-link {
+    display: inline-flex; /* Transforma o botão em um container flexível */
+    align-items: center;  /* Centraliza o ícone e o texto verticalmente */
+    gap: 10px;            /* Adiciona um espaço de 10px entre o ícone e o texto */
+}

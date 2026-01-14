@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     gsap.registerPlugin(ScrollTrigger);
 
     // --- GSAP Animations (Hero, Team, Services) ---
-    // (Mantenha seu código GSAP original aqui se quiser, ou use este básico)
     const tlHero = gsap.timeline();
     tlHero.to(".hero-title", { opacity: 1, y: 0, duration: 1, ease: "power3.out" })
           .to(".hero-subtitle", { opacity: 1, y: 0, duration: 1, delay: -0.5 })
@@ -42,9 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         slidesPerView: 1.2,
         spaceBetween: 20,
         loop: true,
-        // Como agora temos MUITOS slides físicos, podemos deixar o buffer menor
         loopedSlides: 4, 
-        // Aumentei a velocidade para 8000 porque agora a "fila" é muito maior
         speed: 8000, 
         allowTouchMove: false, 
         autoplay: {
@@ -64,12 +61,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const swiperIgor = new Swiper('.swiper-igor', { ...baseConfig });
 
 
-    // --- Modal Logic ---
+    // --- Modal Logic (CORRIGIDO AQUI) ---
     const modal = document.getElementById('project-modal');
     const closeBtn = document.querySelector('.close-modal');
+    
+    // Elementos internos do modal
     const modalImg = document.getElementById('modal-img');
     const modalTitle = document.getElementById('modal-title');
     const modalDesc = document.getElementById('modal-desc');
+    const modalLink = document.getElementById('modal-link'); // <-- NOVO: Seleciona o botão do link
     
     function toggleSwipers(play) {
         if(play) {
@@ -83,20 +83,33 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Como duplicamos o HTML, agora temos VÁRIOS botões iguais.
-    // Usamos delegação de evento no documento para garantir que todos funcionem.
+    // Event Delegation para os botões "Ver Detalhes"
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('open-modal')) {
             e.preventDefault();
             const btn = e.target;
+            
+            // 1. Pega os dados dos atributos do botão clicado
             const title = btn.getAttribute('data-title');
             const desc = btn.getAttribute('data-desc');
             const img = btn.getAttribute('data-img');
+            const link = btn.getAttribute('data-link'); // <-- NOVO: Pega o link do Instagram
 
+            // 2. Preenche o modal
             modalTitle.innerText = title;
             modalDesc.innerText = desc;
             modalImg.src = img;
 
+            // 3. Atualiza o botão do Link (Ver no Instagram)
+            if (link) {
+                modalLink.href = link;
+                modalLink.style.display = 'inline-flex'; // Mostra o botão se tiver link
+            } else {
+                modalLink.href = '#';
+                modalLink.style.display = 'none'; // Esconde o botão se não tiver link (segurança)
+            }
+
+            // 4. Exibe o modal
             modal.style.display = 'flex';
             toggleSwipers(false);
         }
