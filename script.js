@@ -1,20 +1,15 @@
-// --- Initialization ---
 document.addEventListener('DOMContentLoaded', () => {
     
     // 1. Register GSAP Plugins
     gsap.registerPlugin(ScrollTrigger);
 
-    // --- GSAP Animations ---
+    // --- GSAP Animations (Hero, Team, Services) ---
+    // (Mantenha seu código GSAP original aqui se quiser, ou use este básico)
+    const tlHero = gsap.timeline();
+    tlHero.to(".hero-title", { opacity: 1, y: 0, duration: 1, ease: "power3.out" })
+          .to(".hero-subtitle", { opacity: 1, y: 0, duration: 1, delay: -0.5 })
+          .to(".hero-content .btn", { opacity: 1, y: 0, duration: 0.5 }, "-=0.5");
 
-    // Hero Entrance
-   // Hero Entrance
-   const tlHero = gsap.timeline();
-   tlHero.to(".hero-title", { opacity: 1, y: 0, duration: 1, ease: "power3.out" })
-         .to(".hero-subtitle", { opacity: 1, y: 0, duration: 1, delay: -0.5 })
-         // Correção aqui: Usamos .to() e um seletor mais específico
-         .to(".hero-content .btn", { opacity: 1, y: 0, duration: 0.5 }, "-=0.5");
-
-    // Team Blocks Sliding
     gsap.utils.toArray('.team-block').forEach((block, i) => {
         gsap.from(block, {
             scrollTrigger: {
@@ -23,13 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 toggleActions: "play none none reverse"
             },
             opacity: 0,
-            x: i % 2 === 0 ? -100 : 100, // Alternate directions
+            x: i % 2 === 0 ? -100 : 100,
             duration: 1,
             ease: "power3.out"
         });
     });
 
-    // Services Stagger
     gsap.from(".service-card", {
         scrollTrigger: {
             trigger: ".services-grid",
@@ -44,16 +38,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Swiper Carousels ---
     
-    // Config for continuous linear movement
     const baseConfig = {
         slidesPerView: 1.2,
         spaceBetween: 20,
         loop: true,
-        speed: 5000, // Slow constant speed
-        allowTouchMove: false, // User can't swipe manually, pure ticker effect
+        // Como agora temos MUITOS slides físicos, podemos deixar o buffer menor
+        loopedSlides: 4, 
+        // Aumentei a velocidade para 8000 porque agora a "fila" é muito maior
+        speed: 8000, 
+        allowTouchMove: false, 
         autoplay: {
             delay: 0,
             disableOnInteraction: false,
+            pauseOnMouseEnter: false,
         },
         breakpoints: {
             640: { slidesPerView: 2.5 },
@@ -61,17 +58,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Carousel 1: Left to Right (CZ)
-    const swiperCZ = new Swiper('.swiper-cz', baseConfig);
-
-    // Carousel 2: Right to Left (Gabriel) - Reverse
-    const swiperGab = new Swiper('.swiper-gabriel', {
-        ...baseConfig,
-        autoplay: { delay: 0, disableOnInteraction: false, reverseDirection: true }
-    });
-
-    // Carousel 3: Left to Right (Igor)
-    const swiperIgor = new Swiper('.swiper-igor', baseConfig);
+    // Inicialização
+    const swiperCZ = new Swiper('.swiper-cz', { ...baseConfig });
+    const swiperGab = new Swiper('.swiper-gabriel', { ...baseConfig, autoplay: { delay: 0, disableOnInteraction: false, reverseDirection: true } });
+    const swiperIgor = new Swiper('.swiper-igor', { ...baseConfig });
 
 
     // --- Modal Logic ---
@@ -81,7 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalTitle = document.getElementById('modal-title');
     const modalDesc = document.getElementById('modal-desc');
     
-    // Pause swipers on modal open logic
     function toggleSwipers(play) {
         if(play) {
             swiperCZ.autoplay.start();
@@ -94,9 +83,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    document.querySelectorAll('.open-modal').forEach(btn => {
-        btn.addEventListener('click', (e) => {
+    // Como duplicamos o HTML, agora temos VÁRIOS botões iguais.
+    // Usamos delegação de evento no documento para garantir que todos funcionem.
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('open-modal')) {
             e.preventDefault();
+            const btn = e.target;
             const title = btn.getAttribute('data-title');
             const desc = btn.getAttribute('data-desc');
             const img = btn.getAttribute('data-img');
@@ -106,14 +98,13 @@ document.addEventListener('DOMContentLoaded', () => {
             modalImg.src = img;
 
             modal.style.display = 'flex';
-            toggleSwipers(false); // Pause animations
-        });
+            toggleSwipers(false);
+        }
     });
 
-    // Close Modal Actions
     closeBtn.onclick = () => {
         modal.style.display = 'none';
-        toggleSwipers(true); // Resume animations
+        toggleSwipers(true);
     }
 
     window.onclick = (event) => {
@@ -123,34 +114,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- Menu Interactions (Mobile & Dropdown) ---
+    // --- Menu Interactions ---
     const mobileMenu = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
     
-    // 1. Mobile Hamburger Toggle
     if(mobileMenu) {
         mobileMenu.addEventListener('click', () => {
-            mobileMenu.classList.toggle('active'); // Anima o ícone (se houver CSS)
-            navMenu.classList.toggle('active');    // Mostra/Esconde o menu
+            mobileMenu.classList.toggle('active');
+            navMenu.classList.toggle('active');
         });
     }
 
-    // 2. Dropdown Logic (Serviços)
     const dropdownToggle = document.querySelector('.dropdown-toggle');
     const dropdownItem = document.querySelector('.dropdown-item');
 
     if (dropdownToggle) {
         dropdownToggle.addEventListener('click', (e) => {
-            // Previne que a página pule para o ID #services imediatamente
-            // para permitir que o usuário veja o submenu primeiro
             e.preventDefault();
             dropdownItem.classList.toggle('active');
         });
     }
 
-    // 3. Fechar Dropdown ao clicar fora
     document.addEventListener('click', (e) => {
-        // Se o clique NÃO foi dentro do item dropdown, remove a classe active
         if (dropdownItem && !dropdownItem.contains(e.target)) {
             dropdownItem.classList.remove('active');
         }

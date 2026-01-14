@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gabriel Vinhati | Full Stack Developer</title>
+    <title>Igor Mescole | Designer Estratégico</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="img/logo-cz-marketing.PNG" type="image/png">
     <style>
-        /* Specific header for individual profiles */
+        /* Header específico */
         .profile-header {
-            height: 60vh;
+            min-height: 60vh;
+            padding: 40px 0;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
-            margin-top: 80px; /* Offset for fixed nav */
+            margin-top: 80px; 
         }
         .profile-avatar {
             width: 150px; height: 150px;
@@ -26,18 +27,24 @@
             border: 3px solid var(--accent);
             margin-bottom: 20px;
         }
+        
+        /* Grid para Imagens de Design (Estático) */
         .profile-grid-item {
             position: relative;
             height: 300px;
             overflow: hidden;
             border-radius: 8px;
             cursor: pointer;
+            border: 1px solid #333;
+            background: #000;
         }
         .profile-grid-item img {
-            width: 100%; height: 100%; object-fit: cover;
+            width: 100%; height: 100%; object-fit: cover; /* Use 'contain' se quiser ver a imagem inteira sem cortes */
             transition: 0.5s;
+            opacity: 0.8;
         }
-        .profile-grid-item:hover img { transform: scale(1.1); opacity: 0.4; }
+        .profile-grid-item:hover img { transform: scale(1.05); opacity: 0.3; }
+        
         .grid-overlay {
             position: absolute;
             top: 50%; left: 50%;
@@ -46,6 +53,7 @@
             transition: 0.3s;
             text-align: center;
             width: 100%;
+            padding: 15px;
         }
         .profile-grid-item:hover .grid-overlay { opacity: 1; }
     </style>
@@ -56,7 +64,6 @@
         <div class="container nav-container">
             <a href="index.html" class="logo">
                 <img src="img/logo-cz-marketing.PNG" alt="Logo CZ Mídia" class="logo-img">
-                
                 CZ <span class="highlight">Mídia</span>
             </a>
             <ul class="nav-menu">
@@ -67,23 +74,53 @@
 
     <section class="profile-header">
         <div class="container">
-            <img src="img\WhatsApp Image 2025-12-03 at 18.18.58.jpeg" alt="Igor" class="profile-avatar">
+            <img src="img/WhatsApp Image 2025-12-03 at 18.18.58.jpeg" alt="Igor Mescole" class="profile-avatar">
+            
             <h1>Olá, eu sou <span class="text-gradient">Igor Mescole</span></h1>
-            <p>Conheça meu trabalho como Designer em alta performance.</p>
+            
+            <div style="max-width: 800px; margin: 20px auto 0; color: #ccc; line-height: 1.8;">
+                <p style="font-size: 1.1rem; color: #fff;">
+                    Design inteligente que coloca sua marca no topo.
+                </p>
+                <p style="margin-top: 10px;">
+                    Unimos <strong>Inteligência Criativa</strong> com <strong>Direção Estratégica</strong>. Atendemos em todo o Brasil.
+                </p>
+                <p style="margin-top: 10px; color: var(--accent);">
+                    Tudo em um só lugar, diferente dos iguais. Eleve o nível do seu projeto!
+                </p>
+            </div>
+            
+            <div class="bio-social-links">
+                <a href="https://www.instagram.com/salusdesign.co?igsh=NTd5amtza2JjNzI2" target="_blank" class="bio-social-btn" title="Instagram Salus">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.behance.net/igormescole/" target="_blank" class="bio-social-btn" title="Behance Portfolio">
+                    <i class="fab fa-behance"></i>
+                </a>
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <a href="#portfolio" class="btn btn-outline"><i class="fas fa-arrow-down"></i> Ver Portfolio</a>
+            </div>
         </div>
     </section>
 
-    <section class="section">
+    <section id="portfolio" class="section">
         <div class="container">
-            <h2 class="section-title" style="text-align: center;">Clientes & Projetos</h2>
+            <h2 class="section-title text-center">Clientes & Projetos</h2>
+            
+            <p class="scroll-instruction">
+                <i class="fas fa-mouse"></i> Passe o mouse para ver os detalhes
+            </p>
+
             <div class="portfolio-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
                 
                 <div class="profile-grid-item">
-                    <img src="https://raw.githubusercontent.com/GabrielVinhati/imgczmidia/refs/heads/main/igor/Domus.PNG" alt="Domus">
+                    <img src="https://raw.githubusercontent.com/GabrielVinhati/imgczmidia/refs/heads/main/igor/Domus.PNG" alt="Domus Growth">
                     <div class="grid-overlay">
                         <h3>Domus Growth</h3>
-                        <p>Marketing</p>
-                        <p style="margin-top: 10px; font-size: 0.9rem;">LP, Brandbook & Proposta</p>
+                        <p style="color: var(--accent);">Marketing</p>
+                        <p style="margin-top: 5px; font-size: 0.9rem;">LP, Brandbook & Proposta</p>
                     </div>
                 </div>
 
@@ -91,8 +128,8 @@
                     <img src="https://raw.githubusercontent.com/GabrielVinhati/imgczmidia/refs/heads/main/igor/Erivelton%20Fernandes.PNG" alt="Erivelton Fernandes">
                     <div class="grid-overlay">
                         <h3>Erivelton Fernandes</h3>
-                        <p>Cliente</p>
-                        <p style="margin-top: 10px; font-size: 0.9rem;">Projeto</p>
+                        <p style="color: var(--accent);">Advocacia/Pessoal</p>
+                        <p style="margin-top: 5px; font-size: 0.9rem;">Identidade Visual</p>
                     </div>
                 </div>
 
@@ -100,8 +137,8 @@
                     <img src="https://raw.githubusercontent.com/GabrielVinhati/imgczmidia/refs/heads/main/igor/Grupo%20MHZ.PNG" alt="Grupo MHZ">
                     <div class="grid-overlay">
                         <h3>Grupo MHZ</h3>
-                        <p>Negócios</p>
-                        <p style="margin-top: 10px; font-size: 0.9rem;">Landing Page</p>
+                        <p style="color: var(--accent);">Negócios</p>
+                        <p style="margin-top: 5px; font-size: 0.9rem;">Landing Page</p>
                     </div>
                 </div>
 
@@ -109,17 +146,17 @@
                     <img src="https://raw.githubusercontent.com/GabrielVinhati/imgczmidia/refs/heads/main/igor/Hamburguer%20na%20Brasa.PNG" alt="Hambúrguer Na Brasa">
                     <div class="grid-overlay">
                         <h3>Hambúrguer Na Brasa</h3>
-                        <p>Delivery</p>
-                        <p style="margin-top: 10px; font-size: 0.9rem;">Landing Page</p>
+                        <p style="color: var(--accent);">Delivery</p>
+                        <p style="margin-top: 5px; font-size: 0.9rem;">Landing Page</p>
                     </div>
                 </div>
 
                 <div class="profile-grid-item">
                     <img src="https://raw.githubusercontent.com/GabrielVinhati/imgczmidia/refs/heads/main/igor/Ingls%20abaixo%20de%20zero.PNG" alt="Inglês abaixo de Zero">
                     <div class="grid-overlay">
-                        <h3>Inglês abaixo de Zero</h3>
-                        <p>Educação</p>
-                        <p style="margin-top: 10px; font-size: 0.9rem;">Landing Page</p>
+                        <h3>Inglês Abaixo de Zero</h3>
+                        <p style="color: var(--accent);">Educação</p>
+                        <p style="margin-top: 5px; font-size: 0.9rem;">Landing Page de Curso</p>
                     </div>
                 </div>
 
@@ -127,8 +164,8 @@
                     <img src="https://raw.githubusercontent.com/GabrielVinhati/imgczmidia/refs/heads/main/igor/Invictus.PNG" alt="Invictus">
                     <div class="grid-overlay">
                         <h3>Invictus</h3>
-                        <p>Growth Marketing</p>
-                        <p style="margin-top: 10px; font-size: 0.9rem;">Landing Page</p>
+                        <p style="color: var(--accent);">Growth Marketing</p>
+                        <p style="margin-top: 5px; font-size: 0.9rem;">Landing Page High-Ticket</p>
                     </div>
                 </div>
 
@@ -136,8 +173,8 @@
                     <img src="https://raw.githubusercontent.com/GabrielVinhati/imgczmidia/refs/heads/main/igor/Jacke%20Molonha.PNG" alt="Jacke Molonha">
                     <div class="grid-overlay">
                         <h3>Jacke Molonha</h3>
-                        <p>Consultoria de Imagem</p>
-                        <p style="margin-top: 10px; font-size: 0.9rem;"><i class="fas fa-rocket"></i> Lançamento</p>
+                        <p style="color: var(--accent);">Consultoria de Imagem</p>
+                        <p style="margin-top: 5px; font-size: 0.9rem;">Design de Lançamento</p>
                     </div>
                 </div>
 
@@ -145,8 +182,8 @@
                     <img src="https://raw.githubusercontent.com/GabrielVinhati/imgczmidia/refs/heads/main/igor/Kamila%20Bezerra.PNG" alt="Kamila Bezerra">
                     <div class="grid-overlay">
                         <h3>Kamila Bezerra</h3>
-                        <p>Cliente</p>
-                        <p style="margin-top: 10px; font-size: 0.9rem;">Projeto</p>
+                        <p style="color: var(--accent);">Profissional Liberal</p>
+                        <p style="margin-top: 5px; font-size: 0.9rem;">Identidade Visual</p>
                     </div>
                 </div>
 
@@ -154,8 +191,8 @@
                     <img src="https://raw.githubusercontent.com/GabrielVinhati/imgczmidia/refs/heads/main/igor/Lucas%20Guerreiro.PNG" alt="Lucas Guerreiro">
                     <div class="grid-overlay">
                         <h3>Lucas Guerreiro</h3>
-                        <p>Dentista</p>
-                        <p style="margin-top: 10px; font-size: 0.9rem;">Página de Captura</p>
+                        <p style="color: var(--accent);">Odontologia</p>
+                        <p style="margin-top: 5px; font-size: 0.9rem;">Página de Captura</p>
                     </div>
                 </div>
 
@@ -163,8 +200,8 @@
                     <img src="https://raw.githubusercontent.com/GabrielVinhati/imgczmidia/refs/heads/main/igor/Magnificat.PNG" alt="Magnificat">
                     <div class="grid-overlay">
                         <h3>Magnificat</h3>
-                        <p>Marcenaria</p>
-                        <p style="margin-top: 10px; font-size: 0.9rem;">Identidade Visual</p>
+                        <p style="color: var(--accent);">Marcenaria de Luxo</p>
+                        <p style="margin-top: 5px; font-size: 0.9rem;">Rebranding & ID Visual</p>
                     </div>
                 </div>
 
@@ -172,8 +209,8 @@
                     <img src="https://raw.githubusercontent.com/GabrielVinhati/imgczmidia/refs/heads/main/igor/Packlaser.PNG" alt="PackLaser">
                     <div class="grid-overlay">
                         <h3>PackLaser</h3>
-                        <p>Indústria</p>
-                        <p style="margin-top: 10px; font-size: 0.9rem;">Site Institucional</p>
+                        <p style="color: var(--accent);">Indústria</p>
+                        <p style="margin-top: 5px; font-size: 0.9rem;">Site Institucional</p>
                     </div>
                 </div>
 
@@ -181,8 +218,8 @@
                     <img src="https://raw.githubusercontent.com/GabrielVinhati/imgczmidia/refs/heads/main/igor/Personal%202You.PNG" alt="Personal 2You">
                     <div class="grid-overlay">
                         <h3>Personal 2You</h3>
-                        <p>Fitness</p>
-                        <p style="margin-top: 10px; font-size: 0.9rem;">Página de Vendas</p>
+                        <p style="color: var(--accent);">Fitness App</p>
+                        <p style="margin-top: 5px; font-size: 0.9rem;">Página de Vendas</p>
                     </div>
                 </div>
 
@@ -190,8 +227,8 @@
                     <img src="https://raw.githubusercontent.com/GabrielVinhati/imgczmidia/refs/heads/main/igor/Smartalk.PNG" alt="SmartAlk">
                     <div class="grid-overlay">
                         <h3>SmartAlk</h3>
-                        <p>Storytelling</p>
-                        <p style="margin-top: 10px; font-size: 0.9rem;">Site Institucional</p>
+                        <p style="color: var(--accent);">Comunicação</p>
+                        <p style="margin-top: 5px; font-size: 0.9rem;">Site Institucional</p>
                     </div>
                 </div>
 
@@ -199,8 +236,8 @@
                     <img src="https://raw.githubusercontent.com/GabrielVinhati/imgczmidia/refs/heads/main/igor/Thiago%20Ramalho.PNG" alt="Thiago Ramalho">
                     <div class="grid-overlay">
                         <h3>Thiago Ramalho</h3>
-                        <p>Personal Trainer</p>
-                        <p style="margin-top: 10px; font-size: 0.9rem;"><i class="fas fa-layer-group"></i> LP, Área de Membros & Social</p>
+                        <p style="color: var(--accent);">Personal Trainer</p>
+                        <p style="margin-top: 5px; font-size: 0.9rem;">LP, Área de Membros & Social</p>
                     </div>
                 </div>
 
@@ -208,8 +245,8 @@
                     <img src="https://raw.githubusercontent.com/GabrielVinhati/imgczmidia/refs/heads/main/igor/Viver%20de%20Design.PNG" alt="Viver de Design">
                     <div class="grid-overlay">
                         <h3>Viver de Design</h3>
-                        <p>Design</p>
-                        <p style="margin-top: 10px; font-size: 0.9rem;">Projeto</p>
+                        <p style="color: var(--accent);">Comunidade</p>
+                        <p style="margin-top: 5px; font-size: 0.9rem;">Criação de Marca</p>
                     </div>
                 </div>
 
@@ -220,8 +257,8 @@
     <section class="section" style="text-align: center; background: #111;">
         <div class="container">
             <h2>Gostou do que viu?</h2>
-            <p style="margin-bottom: 30px; color: #aaa;">Vamos construir algo incrível juntos.</p>
-            <a href="https://wa.me/5511911271578" target="_blank" class="btn btn-primary" style="font-size: 1.2rem;">
+            <p style="margin-bottom: 30px; color: #aaa;">Vamos elevar o nível da sua marca.</p>
+            <a href="https://wa.me/5527995029973" target="_blank" class="btn btn-primary" style="font-size: 1.2rem;">
                 <i class="fab fa-whatsapp"></i> Entrar em Contato
             </a>
             
@@ -229,7 +266,7 @@
                 <p>Veja também o trabalho dos meus parceiros:</p>
                 <div style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
                     <a href="clifford.html" class="btn btn-outline">Clifford (Tráfego)</a>
-                    <a href="gabriel.html" class="btn btn-outline">Gabriel (Criação de Sites)</a>
+                    <a href="gabriel.html" class="btn btn-outline">Gabriel (Sites)</a>
                 </div>
             </div>
         </div>
@@ -240,13 +277,14 @@
             <p>&copy; 2026 CZ Mídia. Todos os direitos reservados.</p>
         </div>
     </footer>
+    
     <div id="whatsapp-float">
         <div class="whatsapp-bubble">
             Tem alguma dúvida? Clique aqui e fale conosco
         </div>
     
         <a 
-            href="https://wa.me/5527995029973?text=Olá,%20estou%20com%20uma%20dúvida" 
+            href="https://wa.me/5527995029973?text=Olá,%20vim%20pela%20página%20do%20Igor" 
             target="_blank" 
             class="whatsapp-button"
             aria-label="Falar no WhatsApp"

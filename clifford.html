@@ -9,15 +9,16 @@
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="img/logo-cz-marketing.PNG" type="image/png">
     <style>
-        /* Specific header for individual profiles */
+        /* Mantendo o estilo específico do header, igual ao seu */
         .profile-header {
-            height: 60vh;
+            min-height: 60vh; /* Ajustado para min-height para acomodar o texto */
+            padding: 40px 0;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             background: radial-gradient(circle at center, #1a1a1a 0%, #000 100%);
-            margin-top: 80px; /* Offset for fixed nav */
+            margin-top: 80px; 
         }
         .profile-avatar {
             width: 150px; height: 150px;
@@ -26,18 +27,22 @@
             border: 3px solid var(--accent);
             margin-bottom: 20px;
         }
+        
+        /* Estilos específicos para os cards de resultado do Clifford */
         .profile-grid-item {
             position: relative;
-            height: 300px;
+            height: 350px; /* Um pouco mais alto para caber as infos */
             overflow: hidden;
             border-radius: 8px;
             cursor: pointer;
+            border: 1px solid #333;
         }
         .profile-grid-item img {
             width: 100%; height: 100%; object-fit: cover;
             transition: 0.5s;
         }
-        .profile-grid-item:hover img { transform: scale(1.1); opacity: 0.4; }
+        .profile-grid-item:hover img { transform: scale(1.1); opacity: 0.2; }
+        
         .grid-overlay {
             position: absolute;
             top: 50%; left: 50%;
@@ -46,6 +51,7 @@
             transition: 0.3s;
             text-align: center;
             width: 100%;
+            padding: 20px;
         }
         .profile-grid-item:hover .grid-overlay { opacity: 1; }
     </style>
@@ -56,7 +62,6 @@
         <div class="container nav-container">
             <a href="index.html" class="logo">
                 <img src="img/logo-cz-marketing.PNG" alt="Logo CZ Mídia" class="logo-img">
-                
                 CZ <span class="highlight">Mídia</span>
             </a>
             <ul class="nav-menu">
@@ -67,17 +72,54 @@
 
     <section class="profile-header">
         <div class="container">
-            <img src="img/clifford.jpeg" alt="Clifford" class="profile-avatar">
+            <img src="img/clifford.jpeg" alt="Clifford Zequinelli" class="profile-avatar">
+            
             <h1>Olá, eu sou <span class="text-gradient">Clifford Zequinelli</span></h1>
-            <p>Conheça meu trabalho em Trafego Pago e alta performance.</p>
+            
+            <div style="max-width: 800px; margin: 20px auto 0; color: #ccc; line-height: 1.8;">
+                <p>
+                    Sou <strong>CEO e fundador da CZ Mídia e do CZap</strong>, com mais de 3 anos de atuação no marketing digital e tráfego pago.
+                    Atuo no desenvolvimento de estratégias de vendas online, automação e posicionamento de marcas.
+                </p>
+                <p style="margin-top: 10px;">
+                    Possuo experiência em lançamentos, captação de leads e campanhas de alta performance.
+                    Ajudo empresas de diversos nichos a escalar resultados com estratégia e tecnologia.
+                </p>
+                <p style="margin-top: 10px; color: var(--accent); font-weight: 600;">
+                    Meu foco é gerar crescimento consistente, inovação e performance real para os negócios.
+                </p>
+            </div>
+            
+            <div class="bio-social-links">
+                <a href="https://www.instagram.com/cliffordzequinelli?igsh=YmU3M2xpNHl0dmc5" target="_blank" class="bio-social-btn" title="Instagram Pessoal">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                
+                <a href="https://www.instagram.com/czmidia?igsh=a3p6eGxoazc1OWpn" target="_blank" class="bio-social-btn" title="Instagram CZ Mídia">
+                    <i class="fas fa-building"></i>
+                </a>
+
+                <a href="https://wa.me/5527995029973" target="_blank" class="bio-social-btn" title="Falar no WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+            
+            <div style="margin-top: 30px;">
+                <a href="#resultados" class="btn btn-outline"><i class="fas fa-arrow-down"></i> Ver Resultados</a>
+            </div>
         </div>
     </section>
 
-    <section class="section">
+    <section id="resultados" class="section">
         <div class="container">
-            <h2 class="section-title" style="text-align: center;">Nossos Clientes & Resultados</h2>
+            <h2 class="section-title text-center">Clientes & Resultados</h2>
+            
+            <p class="scroll-instruction">
+                <i class="fas fa-mouse"></i> Passe o mouse para ver os números
+            </p>
+
             <div class="portfolio-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-                
+
                 <div class="profile-grid-item">
                     <img src="img/larissa.jpeg" alt="Estética">
                     <div class="grid-overlay">
@@ -87,7 +129,7 @@
                             <i class="fas fa-coins"></i> Inv: R$ 150<br>
                             <i class="fas fa-chart-line"></i> Ret: <strong>R$ 8.000+</strong>
                         </p>
-                        <a href="https://www.instagram.com/dra.larissaclarindo" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.8rem; margin-top: 10px; display: inline-block;">Ver Instagram</a>
+                        <a href="https://www.instagram.com/dra.larissaclarindo" target="_blank" class="btn btn-outline" style="font-size: 0.8rem; margin-top: 10px; padding: 5px 15px;">Ver Instagram</a>
                     </div>
                 </div>
 
@@ -100,7 +142,7 @@
                             <i class="fas fa-coins"></i> Inv: R$ 4.000<br>
                             <i class="fas fa-chart-line"></i> Fat: <strong>R$ 1 Milhão+</strong>
                         </p>
-                        <a href="https://www.instagram.com/fernandobatalhaoficial" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.8rem;">Ver Instagram</a>
+                        <a href="https://www.instagram.com/fernandobatalhaoficial" target="_blank" class="btn btn-outline" style="font-size: 0.8rem; margin-top: 10px; padding: 5px 15px;">Ver Instagram</a>
                     </div>
                 </div>
 
@@ -113,7 +155,7 @@
                             <i class="fas fa-coins"></i> Inv: R$ 300<br>
                             <i class="fas fa-chart-line"></i> Fat: <strong>R$ 7.890</strong>
                         </p>
-                        <a href="https://www.instagram.com/massasbragatto" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.8rem;">Ver Instagram</a>
+                        <a href="https://www.instagram.com/massasbragatto" target="_blank" class="btn btn-outline" style="font-size: 0.8rem; margin-top: 10px; padding: 5px 15px;">Ver Instagram</a>
                     </div>
                 </div>
 
@@ -126,12 +168,12 @@
                             <i class="fas fa-coins"></i> Inv: R$ 300<br>
                             <i class="fas fa-comments"></i> +200 Msgs
                         </p>
-                        <a href="https://www.instagram.com/pepeveiculos" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.8rem;">Ver Instagram</a>
+                        <a href="https://www.instagram.com/pepeveiculos" target="_blank" class="btn btn-outline" style="font-size: 0.8rem; margin-top: 10px; padding: 5px 15px;">Ver Instagram</a>
                     </div>
                 </div>
 
                 <div class="profile-grid-item">
-                    <img src="https://raw.githubusercontent.com/GabrielVinhati/IMG-PORT-CLIFF/refs/heads/main/LOGO%20MUNDO.png" alt="Imóveis" style="object-fit: contain;">
+                    <img src="https://raw.githubusercontent.com/GabrielVinhati/IMG-PORT-CLIFF/refs/heads/main/LOGO%20MUNDO.png" alt="Imóveis" style="object-fit: contain; background: #fff;">
                     <div class="grid-overlay">
                         <h3>Mundo do Negócio</h3>
                         <p>Imobiliária</p>
@@ -139,7 +181,7 @@
                             <i class="fas fa-coins"></i> Inv: R$ 300<br>
                             <i class="fas fa-comments"></i> +200 Msgs
                         </p>
-                        <a href="https://www.instagram.com/mundonegociossm" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.8rem;">Ver Instagram</a>
+                        <a href="https://www.instagram.com/mundonegociossm" target="_blank" class="btn btn-outline" style="font-size: 0.8rem; margin-top: 10px; padding: 5px 15px;">Ver Instagram</a>
                     </div>
                 </div>
 
@@ -152,7 +194,7 @@
                             <i class="fas fa-coins"></i> Inv: R$ 600<br>
                             <i class="fas fa-chart-line"></i> Ret: <strong>R$ 20.000+</strong>
                         </p>
-                        <a href="https://www.instagram.com/czap.oficial" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.8rem;">Ver Instagram</a>
+                        <a href="https://www.instagram.com/czap.oficial" target="_blank" class="btn btn-outline" style="font-size: 0.8rem; margin-top: 10px; padding: 5px 15px;">Ver Instagram</a>
                     </div>
                 </div>
 
@@ -165,7 +207,7 @@
                             <i class="fas fa-coins"></i> Inv: R$ 300<br>
                             <i class="fas fa-chart-line"></i> Vend: <strong>R$ 15.000+</strong>
                         </p>
-                        <a href="https://www.instagram.com/mamute.saomateus.oficial" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.8rem;">Ver Instagram</a>
+                        <a href="https://www.instagram.com/mamute.saomateus.oficial" target="_blank" class="btn btn-outline" style="font-size: 0.8rem; margin-top: 10px; padding: 5px 15px;">Ver Instagram</a>
                     </div>
                 </div>
 
@@ -178,7 +220,7 @@
                             <i class="fas fa-coins"></i> Inv: R$ 300<br>
                             <i class="fas fa-chart-line"></i> Vend: <strong>R$ 10.000+</strong>
                         </p>
-                        <a href="https://www.instagram.com/gurizonmat" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.8rem;">Ver Instagram</a>
+                        <a href="https://www.instagram.com/gurizonmat" target="_blank" class="btn btn-outline" style="font-size: 0.8rem; margin-top: 10px; padding: 5px 15px;">Ver Instagram</a>
                     </div>
                 </div>
 
@@ -191,7 +233,7 @@
                             <i class="fas fa-coins"></i> Inv: R$ 300<br>
                             <i class="fas fa-chart-line"></i> Vend: <strong>R$ 6.000+</strong>
                         </p>
-                        <a href="https://www.instagram.com/nutricenter_linhares_saomateus" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.8rem;">Ver Instagram</a>
+                        <a href="https://www.instagram.com/nutricenter_linhares_saomateus" target="_blank" class="btn btn-outline" style="font-size: 0.8rem; margin-top: 10px; padding: 5px 15px;">Ver Instagram</a>
                     </div>
                 </div>
 
@@ -204,7 +246,7 @@
                             <i class="fas fa-coins"></i> Inv: R$ 300<br>
                             <i class="fas fa-comments"></i> +300 Msgs
                         </p>
-                        <a href="https://www.instagram.com/jandaialogistica" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.8rem;">Ver Instagram</a>
+                        <a href="https://www.instagram.com/jandaialogistica" target="_blank" class="btn btn-outline" style="font-size: 0.8rem; margin-top: 10px; padding: 5px 15px;">Ver Instagram</a>
                     </div>
                 </div>
                  
@@ -216,7 +258,7 @@
                         <p style="margin-top: 10px; font-size: 0.9rem;">
                            Autoridade e Engajamento
                         </p>
-                        <a href="https://www.instagram.com/wesleycamporesadv" target="_blank" style="color: var(--accent); text-decoration: none; font-size: 0.8rem;">Ver Instagram</a>
+                        <a href="https://www.instagram.com/wesleycamporesadv" target="_blank" class="btn btn-outline" style="font-size: 0.8rem; margin-top: 10px; padding: 5px 15px;">Ver Instagram</a>
                     </div>
                 </div>
 
@@ -227,7 +269,7 @@
     <section class="section" style="text-align: center; background: #111;">
         <div class="container">
             <h2>Gostou do que viu?</h2>
-            <p style="margin-bottom: 30px; color: #aaa;">Vamos construir algo incrível juntos.</p>
+            <p style="margin-bottom: 30px; color: #aaa;">Vamos escalar seu negócio juntos.</p>
             <a href="https://wa.me/5527995029973" target="_blank" class="btn btn-primary" style="font-size: 1.2rem;">
                 <i class="fab fa-whatsapp"></i> Entrar em Contato
             </a>
@@ -235,7 +277,7 @@
             <div style="margin-top: 60px; border-top: 1px solid #333; padding-top: 30px;">
                 <p>Veja também o trabalho dos meus parceiros:</p>
                 <div style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
-                    <a href="igor.html" class="btn btn-outline">Igor (Designer)</a>
+                    <a href="igor.html" class="btn btn-outline">Igor (Design)</a>
                     <a href="gabriel.html" class="btn btn-outline">Gabriel (Criação de Sites)</a>
                 </div>
             </div>
@@ -253,7 +295,7 @@
         </div>
     
         <a 
-            href="https://wa.me/5527995029973?text=Olá,%20estou%20com%20uma%20dúvida" 
+            href="https://wa.me/5527995029973?text=Olá,%20vim%20pelo%20site%20e%20gostaria%20de%20saber%20mais" 
             target="_blank" 
             class="whatsapp-button"
             aria-label="Falar no WhatsApp"

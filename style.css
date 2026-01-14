@@ -1416,3 +1416,23 @@ textarea {
     /* Sombra para destacar do fundo */
     box-shadow: 0 0 20px rgba(0, 182, 255, 0.3);
 }
+/* Isso força o movimento constante, sem acelerar ou frear */
+.swiper-wrapper {
+    -webkit-transition-timing-function: linear !important; 
+    -o-transition-timing-function: linear !important;
+    transition-timing-function: linear !important; 
+}
+
+/* Aumentamos a força juntando .btn e .btn-hero */
+.btn.btn-hero {
+    font-size: 25px; /* !important força a prioridade (use para testar) */
+    font-weight: 400;
+    font-family: 'Lucida Sans', sans-serif;
+}
+
+/* Regra para Desktop (Telas maiores que 768px) */
+@media (max-width: 768px) {
+    .btn.btn-hero {
+        font-size: 18px; /* Ajustei de 1px para 18px, pois 1px ficaria invisível */
+    }
+}
